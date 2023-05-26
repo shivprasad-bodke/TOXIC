@@ -1,0 +1,17 @@
+trigger book on Travel__c (after insert) {
+
+List<Booking_c> mList = new List<Booking_c>();
+
+for (Travel__c eobj: trigger.new) {
+
+Booking_c NewCandidate = new Booking_c();
+
+NewCandidate.Name='new Candidate' ;
+
+
+NewCandidate.Travel__c=eobj.id;
+mList.add(NewCandidate);
+
+} insert mList;
+
+ }
